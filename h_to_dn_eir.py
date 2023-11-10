@@ -106,7 +106,11 @@ class ParsFile:
                                         zap_.plan_month = month_
 
                                     data = self.get_value("NPOLIS", line)
-                                    if data["founding"]:
+                                    if data["founding"] and len(data["value"]) > 0:
+                                        zap_.enp = data["value"]
+
+                                    data = self.get_value("ENP", line)
+                                    if data["founding"] and len(data["value"]) > 0:
                                         zap_.enp = data["value"]
 
                                     data = self.get_value("P_CEL", line)
